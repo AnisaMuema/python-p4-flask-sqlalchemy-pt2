@@ -10,6 +10,7 @@ from models import db, Owner, Pet
 db.init_app(app)
 
 fake = Faker()
+
 with app.app_context():
     Pet.query.delete()
     Owner.query.delete()

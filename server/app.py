@@ -32,7 +32,7 @@ def pet_by_id(id):
     response_body = f'''
         <h1>Information for {pet.name}</h1>
         <h2>Pet species is {pet.species}</h2>
-        <h2>Pet owner is {pet.owner}</h2>
+        <h2>Pet owner is {pet.owner.name}</h2>
     '''
     response = make_response(response_body, 200)
 
@@ -40,7 +40,7 @@ def pet_by_id(id):
 
 @app.route('/owner/<int:id>')
 def owner_by_id(id):
-    owner = Owner.query.filter(owner.id == id).first()
+    owner = Owner.query.filter(Owner.id == id).first()
 
     if not owner:
         response_body = '<h1>404 owner not found</h1>'
